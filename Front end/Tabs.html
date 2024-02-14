@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    .tab {
+      display: none;
+    }
+    
+    .tabs-container {
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      overflow: hidden;
+    }
+    
+    .tabs-column {
+      flex: 1;
+    }
+    
+    .tab {
+      display: none;
+    }
+    
+    .tab.active {
+      display: block;
+    }
+    
+    .tab-button {
+      background-color: #f1f1f1;
+      border: none;
+      padding: 10px 20px;
+      cursor: pointer;
+      display: block;
+      margin-bottom: 10px;
+    }
+    
+    .tab-button.active {
+      background-color: #ccc;
+    }
+    
+    .content-container {
+      display: flex;
+    }
+    
+    .column {
+      flex: 1;
+      margin-right: 10px; /* Adjust the margin as needed */
+    }
+    
+    .image-container {
+      width: 100%; /* Adjust the width as needed */
+    }
+    
+    .image {
+      width: 100%;
+      height: auto;
+    }
+  </style>
+
+  <div class="tab-container">
+
+    <button class="tab-button" onclick="openTab(event, 'tab1')">Learning</button>
+
+<div class="content-container">
+    <div class="column">
+
+
+      <div id="tab1" class="tab">
+        <div class="content-box">
+          <h2>Tab 1 Content</h2>
+          <p>This is the content for Tab 1.</p>
+        </div>
+     
+<div class="image-container">
+          <img class="image" src="C:\Users\BIDAR\Downloads\DL-Learning-1.jpg" alt="Image">
+        </div>
+      </div>
+    </div>
+    
+    <div class="column">
+      <!-- Your column  content here -->
+    </div>
+ </div>
+
+
+    <button class="tab-button" onclick="openTab(event, 'tab2')">Techhnology</button>
+
+<div id="tab2" class="tab">
+        <div class="content-box">
+          <h2>Tab 1 Content</h2>
+          <p>This is the content for Tab 2.</p>
+       </div>
+
+<div class="image-container">
+          <img class="image" src="C:\Users\BIDAR\Downloads\DL-Technology.jpg" alt="Image">
+        </div>
+      </div>
+    </div>
+    
+    <div class="column">
+      <!-- Your column  content here -->
+    </div>
+ </div>
+
+
+
+    <button class="tab-button" onclick="openTab(event, 'tab3')">Communication</button>
+  
+ <div id="tab3" class="tab">
+        <div class="content-box">
+          <h2>Tab 3 Content</h2>
+          <p>This is the content for Tab 3.</p>
+
+  <div class="image-container">
+          <img class="image" src="C:\Users\BIDAR\OneDrive\Pictures\DL-Communication.jpg" alt="Image">
+        </div>
+      </div>
+    </div>
+    
+    <div class="column">
+      <!-- Your column 3 content here -->
+    </div>
+  </div>
+
+  <script>
+    function openTab(event, tabId) {
+      // Get all tab elements
+      var tabs = document.getElementsByClassName("tab");
+      
+      // Hide all tabs
+      for (var i = 0; i < tabs.length; i++) {
+        tabs[i].style.display = "none";
+      }
+      
+      // Show the selected tab
+      var tab = document.getElementById(tabId);
+      tab.style.display = "block";
+    }
+  </script>
+</body>
+</html>

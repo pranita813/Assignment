@@ -1,0 +1,120 @@
+
+//Insert
+<?php
+$servername = "localhost";
+$username = "root";
+$password = "";
+$dbname = "crud_example";
+
+// Create connection
+$conn = new mysqli($servername, $username, $password, $dbname);
+
+// Check connection
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+}
+
+// Example data
+$username = "new_user";
+$email = "new.user@example.com";
+$password = "new_user_password";
+
+// Insert data into users table
+$sql = "INSERT INTO users (username, email, password) VALUES ('$username', '$email', '$password')";
+
+if ($conn->query($sql) === TRUE) {
+    echo "New record created successfully";
+} else {
+    echo "Error: " . $sql . "<br>" . $conn->error;
+}
+
+$conn->close();
+?>
+
+//Read
+<?php
+$servername = "localhost";
+$username = "root";
+$password = "";
+$dbname = "crud_example";
+
+$conn = new mysqli($servername, $username, $password, $dbname);
+
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+}
+
+// Select all data from users table
+$sql = "SELECT id, username, email FROM users";
+$result = $conn->query($sql);
+
+if ($result->num_rows > 0) {
+    // Output data of each row
+    while($row = $result->fetch_assoc()) {
+        echo "ID: " . $row["id"]. " - Username: " . $row["username"]. " - Email: " . $row["email"]. "<br>";
+    }
+} else {
+    echo "0 results";
+}
+
+$conn->close();
+?>
+
+
+//Update
+<?php
+$servername = "localhost";
+$username = "root";
+$password = "";
+$dbname = "crud_example";
+
+$conn = new mysqli($servername, $username, $password, $dbname);
+
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+}
+
+// Example data
+$user_id_to_update = 1;
+$new_username = "updated_user";
+
+// Update data in users table
+$sql = "UPDATE users SET username='$new_username' WHERE id=$user_id_to_update";
+
+if ($conn->query($sql) === TRUE) {
+    echo "Record updated successfully";
+} else {
+    echo "Error updating record: " . $conn->error;
+}
+
+$conn->close();
+?>
+
+
+//Delete
+<?php
+$servername = "localhost";
+$username = "root";
+$password = "";
+$dbname = "crud_example";
+
+$conn = new mysqli($servername, $username, $password, $dbname);
+
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+}
+
+// Example data
+$user_id_to_delete = 2;
+
+// Delete data from users table
+$sql = "DELETE FROM users WHERE id=$user_id_to_delete";
+
+if ($conn->query($sql) === TRUE) {
+    echo "Record deleted successfully";
+} else {
+    echo "Error deleting record: " . $conn->error;
+}
+
+$conn->close();
+?>
